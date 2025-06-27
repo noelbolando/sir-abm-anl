@@ -26,9 +26,10 @@ def sir_model(y, t, beta, gamma):
     return [dSdt, dIdt, dRdt]
 
 # Model parameters
-S0 = 0.99 # 99% of the population is susceptible at t=0
-I0 = 0.01 # 1% of the population is infected at t=0
-R0 = 0.00 # 0% of the population is recovered at t=0
+population_size = 100000
+S0 = 0.99 * population_size # 99% of the population is susceptible at t=0
+I0 = 0.01 * population_size # 1% of the population is infected at t=0
+R0 = 0.00 * population_size # 0% of the population is recovered at t=0
 y0 = [S0, I0, R0]
 beta = 0.3 # transmission rate
 gamma = 0.1 # recovery rate
@@ -42,15 +43,13 @@ solution = odeint(sir_model, y0, t, args=(beta, gamma))
 S, I, R = solution.T
 
 # Plot the model results
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(100, 6))
 plt.plot(t, S, label='Susceptible')
 plt.plot(t, I, label='Infected')
 plt.plot(t, R, label='Recovered')
 plt.xlabel('Time (days)')
-plt.ylabel('Proportion of Population (%)')
+plt.ylabel('Number of Individuals')
 plt.title(f'SIR Model Simulation for {num_days} Days')
 plt.legend()
 plt.grid(True)
 plt.show()
-
-
