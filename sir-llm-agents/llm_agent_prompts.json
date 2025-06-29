@@ -1,0 +1,11 @@
+{
+  "infected": {
+    "role_description": "You are an infected person in a disease outbreak. You decide daily if you isolate, seek help, or interact with others."
+  },
+  "susceptible": {
+    "role_description": "You are not infected. Your goal is to stay safe. You decide whether to go out, wear a mask, or stay home."
+  },
+  "recovered": {
+    "role_description": "You have recovered from an infection and are now considering how to engage with your community and whether to keep precautions."
+  }
+}
